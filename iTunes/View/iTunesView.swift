@@ -28,7 +28,7 @@ class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
         super.init(frame: frame)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "itunesCell")
+        tableView.register(iTunesCell.self, forCellReuseIdentifier: "itunesCell")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +54,7 @@ class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itunesCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itunesCell", for: indexPath) as! iTunesCell
         cell.backgroundColor = .yellow
         return cell
     }
@@ -66,3 +66,74 @@ class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
     
 
 }
+
+class iTunesCell: UITableViewCell {
+    
+    let imageViewContainer : UIImageView = {
+       let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .purple
+        return imageView
+        
+    }()
+    
+    let nameLabel : UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Name Label"
+        return label
+    }()
+    
+    let contentType : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Content Label"
+        return label
+    }()
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        buildViews()
+    }
+    
+    func buildViews(){
+        addSubview(imageViewContainer)
+        addSubview(nameLabel)
+        addSubview(contentType)
+        
+        NSLayoutConstraint.activate([
+            imageViewContainer.topAnchor.constraint(equalTo: self.topAnchor),
+            imageViewContainer.leftAnchor.constraint(equalTo: self.leftAnchor),
+            imageViewContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
+            imageViewContainer.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8)
+            ])
+        
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: imageViewContainer.bottomAnchor, constant: 8),
+            nameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
+            nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1)
+            ])
+        
+        NSLayoutConstraint.activate([
+            contentType.topAnchor.constraint(equalTo: imageViewContainer.bottomAnchor, constant: 8),
+            contentType.leftAnchor.constraint(equalTo: self.nameLabel.rightAnchor, constant: 8),
+            contentType.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
+            contentType.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1)
+            ])
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
