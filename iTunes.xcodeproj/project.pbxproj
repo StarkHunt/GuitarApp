@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080D4FFF208514AA00F53094 /* iTunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080D4FFE208514AA00F53094 /* iTunesView.swift */; };
 		0866A48320850F0900F8D082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866A48220850F0900F8D082 /* AppDelegate.swift */; };
-		0866A48520850F0900F8D082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866A48420850F0900F8D082 /* ViewController.swift */; };
+		0866A48520850F0900F8D082 /* iTunesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866A48420850F0900F8D082 /* iTunesViewController.swift */; };
 		0866A48820850F0900F8D082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48620850F0900F8D082 /* Main.storyboard */; };
 		0866A48A20850F0900F8D082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48920850F0900F8D082 /* Assets.xcassets */; };
 		0866A48D20850F0900F8D082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48B20850F0900F8D082 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080D4FFE208514AA00F53094 /* iTunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesView.swift; sourceTree = "<group>"; };
 		0866A47F20850F0900F8D082 /* iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0866A48220850F0900F8D082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0866A48420850F0900F8D082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0866A48420850F0900F8D082 /* iTunesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesViewController.swift; sourceTree = "<group>"; };
 		0866A48720850F0900F8D082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0866A48920850F0900F8D082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0866A48C20850F0900F8D082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +56,39 @@
 		0866A48120850F0900F8D082 /* iTunes */ = {
 			isa = PBXGroup;
 			children = (
+				0866A496208510F900F8D082 /* Model */,
+				0866A495208510EF00F8D082 /* View */,
+				0866A494208510E700F8D082 /* Controller */,
 				0866A48220850F0900F8D082 /* AppDelegate.swift */,
-				0866A48420850F0900F8D082 /* ViewController.swift */,
 				0866A48620850F0900F8D082 /* Main.storyboard */,
 				0866A48920850F0900F8D082 /* Assets.xcassets */,
 				0866A48B20850F0900F8D082 /* LaunchScreen.storyboard */,
 				0866A48E20850F0A00F8D082 /* Info.plist */,
 			);
 			path = iTunes;
+			sourceTree = "<group>";
+		};
+		0866A494208510E700F8D082 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0866A48420850F0900F8D082 /* iTunesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0866A495208510EF00F8D082 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				080D4FFE208514AA00F53094 /* iTunesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0866A496208510F900F8D082 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0866A48520850F0900F8D082 /* ViewController.swift in Sources */,
+				0866A48520850F0900F8D082 /* iTunesViewController.swift in Sources */,
+				080D4FFF208514AA00F53094 /* iTunesView.swift in Sources */,
 				0866A48320850F0900F8D082 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83T7NTJAP3;
 				INFOPLIST_FILE = iTunes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StarkInternationals.iTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83T7NTJAP3;
 				INFOPLIST_FILE = iTunes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StarkInternationals.iTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
