@@ -10,24 +10,23 @@ import UIKit
 
 class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    //assiged value from the controller
+    var viewData = [iTunesStruct]()
     
     let tableView : UITableView = {
             let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 255/255, alpha: 0.5)
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        //tableView delegate and datasource
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //register tableViewCell
         tableView.register(iTunesCell.self, forCellReuseIdentifier: "itunesCell")
     }
     
@@ -35,6 +34,7 @@ class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- Draw function - constraints for tableView
     override func draw(_ rect: CGRect) {
             super.draw(rect)
         
@@ -49,80 +49,31 @@ class iTunesView: UIView, UITableViewDelegate, UITableViewDataSource {
             ])
     }
     
+    //MARK:- tableView: numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewData.count
     }
     
+    //MARK:- tableView: cellForRowAt indexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itunesCell", for: indexPath) as! iTunesCell
-        cell.backgroundColor = .yellow
+        let item = viewData[indexPath.row]
+        cell.nameLabel.text = item.artistName
+        cell.setURLString(url: item.artworkUrl100)
+        cell.contentType.text = "Apple Music"
+        
         return cell
     }
     
+    //MARK:- tableView's height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 240
     }
     
     
-
+    
 }
 
-class iTunesCell: UITableViewCell {
-    
-    let imageViewContainer : UIImageView = {
-       let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .purple
-        return imageView
-        
-    }()
-    
-    let nameLabel : UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Name Label"
-        return label
-    }()
-    
-    let contentType : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Content Label"
-        return label
-    }()
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        buildViews()
-    }
-    
-    func buildViews(){
-        addSubview(imageViewContainer)
-        addSubview(nameLabel)
-        addSubview(contentType)
-        
-        NSLayoutConstraint.activate([
-            imageViewContainer.topAnchor.constraint(equalTo: self.topAnchor),
-            imageViewContainer.leftAnchor.constraint(equalTo: self.leftAnchor),
-            imageViewContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
-            imageViewContainer.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8)
-            ])
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: imageViewContainer.bottomAnchor, constant: 8),
-            nameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
-            nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
-            nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1)
-            ])
-        
-        NSLayoutConstraint.activate([
-            contentType.topAnchor.constraint(equalTo: imageViewContainer.bottomAnchor, constant: 8),
-            contentType.leftAnchor.constraint(equalTo: self.nameLabel.rightAnchor, constant: 8),
-            contentType.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
-            contentType.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1)
-            ])
-    }
-}
 
 
 

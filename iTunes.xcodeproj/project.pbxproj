@@ -13,6 +13,7 @@
 		0866A48820850F0900F8D082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48620850F0900F8D082 /* Main.storyboard */; };
 		0866A48A20850F0900F8D082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48920850F0900F8D082 /* Assets.xcassets */; };
 		0866A48D20850F0900F8D082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0866A48B20850F0900F8D082 /* LaunchScreen.storyboard */; };
+		08EAFFE62086334900E10E13 /* iTunesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EAFFE52086334900E10E13 /* iTunesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0866A48920850F0900F8D082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0866A48C20850F0900F8D082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0866A48E20850F0A00F8D082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08EAFFE52086334900E10E13 /* iTunesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 		0866A48120850F0900F8D082 /* iTunes */ = {
 			isa = PBXGroup;
 			children = (
-				0866A496208510F900F8D082 /* Model */,
 				0866A495208510EF00F8D082 /* View */,
 				0866A494208510E700F8D082 /* Controller */,
 				0866A48220850F0900F8D082 /* AppDelegate.swift */,
@@ -80,15 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				080D4FFE208514AA00F53094 /* iTunesView.swift */,
+				08EAFFE52086334900E10E13 /* iTunesCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0866A496208510F900F8D082 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +161,7 @@
 				0866A48520850F0900F8D082 /* iTunesViewController.swift in Sources */,
 				080D4FFF208514AA00F53094 /* iTunesView.swift in Sources */,
 				0866A48320850F0900F8D082 /* AppDelegate.swift in Sources */,
+				08EAFFE62086334900E10E13 /* iTunesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
